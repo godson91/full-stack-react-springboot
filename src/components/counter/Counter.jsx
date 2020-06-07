@@ -23,8 +23,8 @@ class Counter extends Component {
     }
     increment(by){
         // console.log(`increment from child  Counterbutton class - ${by}`)
-        this.setState({
-            counter : this.state.counter + by
+        this.setState((prevState) => {
+           return { counter : this.state.counter + by}
         })
     }
   }
@@ -48,8 +48,8 @@ class Counter extends Component {
        }
         increment () {//update the state - counter++
         // console.log('increment')
-            this.setState({
-                counter : this.state.counter + this.props.by
+            this.setState((prevState) => {
+               return { counter : this.state.counter + this.props.by}
             })
             this.props.incrementMethod(this.props.by);
     }
