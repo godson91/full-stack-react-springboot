@@ -22,7 +22,7 @@ class AuthenticationService {
         // let basicAuthHeader = 'Basic ' + window.btoa(username + ":" + password)
 
         sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username);
-        this.setupAxiosInterceptors(this.createBasicAuthToken(username,password))
+        this.setupAxiosInterceptors(this.createBasiccrAuthToken(username,password))
     }
     registerSuccessfulLoginForJwt(username,token){
         sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username)

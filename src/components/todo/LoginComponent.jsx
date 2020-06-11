@@ -11,31 +11,12 @@ class LoginComponent extends Component {
             hasLoginFAiled: false,
             showSuccessMessage: false
         }
-        // this.handleUsernameChange = this.handleUsernameChange.bind(this)
-        // this.handlePasswordChange = this.handlePasswordChange.bind(this) 
+
         this.handleChange = this.handleChange.bind(this)
         this.loginClicked = this.loginClicked.bind(this)
     }
     loginClicked() {
-        //godson91,password
-        // if (this.state.username === 'godson91' && this.state.password === 'password') {
-        //     AuthenticationService.registerSuccessfulLogin(this.state.username,this.state.password);
-        //     this.props.history.push(`/welcome/${this.state.username}`)
-        // }
-        // else {
-        //     this.setState({ showSuccessMessage: false })
-        //     this.setState({ hasLoginFAiled: true })
-        // }
-
-        // AuthenticationService.executeBasicAuthenticationService(this.state.username,this.state.password)
-        //     .then(() => {
-        //         AuthenticationService.registerSuccessfulLogin(this.state.username,this.state.password)
-        //         this.props.history.push(`/welcome/${this.state.username}`)
-        //     }).catch(() => {
-        //         this.setState({ showSuccessMessage: false })
-        //         this.setState({ hasLoginFAiled: true })
-        //      })
-
+        
              AuthenticationService.executeJWTAuthenticationService(this.state.username,this.state.password)
             .then((response) => {
                 AuthenticationService.registerSuccessfulLoginForJwt(this.state.username,response.data.token)
@@ -46,7 +27,6 @@ class LoginComponent extends Component {
              })
     }
     handleChange(event) {
-        // console.log(this.state);
         this.setState(
             {
                 //[event.target.value] is variable
@@ -54,10 +34,7 @@ class LoginComponent extends Component {
             }
         )
     }
-    // handlePasswordChange(event){
-    //     console.log(event.target.value);
-    //     this.setState({password:event.target.value})
-    // }
+    
     render() {
         return (
             <div>
